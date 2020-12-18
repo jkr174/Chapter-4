@@ -17,10 +17,10 @@ using System.Windows.Forms;
 
 namespace SQLTesterProject4_1
 {
-    public partial class frmSQLTester : Form
+    public partial class frmBooks : Form
     {
         SqlConnection booksConnection;
-        public frmSQLTester()
+        public frmBooks()
         {
             InitializeComponent();
         }
@@ -35,7 +35,7 @@ namespace SQLTesterProject4_1
                 resultsCommand = new SqlCommand(txtSQLTester.Text, booksConnection);
                 resultsAdapter.SelectCommand = resultsCommand;
                 resultsAdapter.Fill(resultsTable);
-                grdSQLTester.DataSource = resultsTable;
+                grdBooks.DataSource = resultsTable;
                 lblRecords.Text = resultsTable.Rows.Count.ToString();
             }
             catch (Exception ex)
@@ -68,7 +68,7 @@ namespace SQLTesterProject4_1
         private void grdSQLTester_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
             if (e.Column.CellType == typeof(DataGridViewImageCell))
-                grdSQLTester.Columns.Remove(e.Column);
+                grdBooks.Columns.Remove(e.Column);
         }
     }
 }

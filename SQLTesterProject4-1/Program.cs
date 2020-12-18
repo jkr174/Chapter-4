@@ -16,7 +16,7 @@ namespace SQLTesterProject4_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSQLTester());
+            Application.Run(new frmBooks());
         }
     }
 }
