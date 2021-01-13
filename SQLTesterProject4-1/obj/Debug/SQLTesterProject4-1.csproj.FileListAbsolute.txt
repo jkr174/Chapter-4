@@ -2,8 +2,8 @@ C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\bin\Debug\SQ
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\bin\Debug\SQLTesterProject4-1.exe
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\bin\Debug\SQLTesterProject4-1.pdb
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.csprojAssemblyReference.cache
-C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4_1.frmSQLTester.resources
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4_1.Properties.Resources.resources
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.csproj.GenerateResource.cache
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.exe
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.pdb
+C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4_1.frmBooks.resources

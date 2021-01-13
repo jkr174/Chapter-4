@@ -5,6 +5,7 @@
  */
 
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,8 @@ namespace SQLTesterProject4_1
     public partial class frmBooks : Form
     {
         SqlConnection booksConnection;
+        String SQLAll;
+        Button[] btnRolodex = new Button[26];
         public frmBooks()
         {
             InitializeComponent();
@@ -30,20 +33,35 @@ namespace SQLTesterProject4_1
             SqlCommand resultsCommand = null;
             SqlDataAdapter resultsAdapter = new SqlDataAdapter();
             DataTable resultsTable = new DataTable();
+            String SQLStatement;
+
+            Button buttonClicked = (Button)sender;
+            switch (buttonClicked.Text)
+            {
+                case "Show All Records":
+                    SQLStatement = SQLAll;
+                    break;
+                case "Z":
+                    SQLStatement = SQLAll + "AND Authors.Author > 'Z'";
+                    break;
+                default:
+                    int index = (int)(Convert.ToChar(buttonClicked.Text)) - 65;
+                    SQLStatement = SQLAll + "AND Authors.Author >'" + btnRolodex[index].Text + "'";
+                    SQLStatement += "AND Authors.Author <'" + btnRolodex[index + 1].Text + "'";
+                    break;
+            }
+            SQLStatement += "ORDER BY Authors.Author";
             try
             {
-                resultsCommand = new SqlCommand(txtSQLTester.Text, booksConnection);
+                resultsCommand = new SqlCommand(SQLStatement, booksConnection);
                 resultsAdapter.SelectCommand = resultsCommand;
                 resultsAdapter.Fill(resultsTable);
                 grdBooks.DataSource = resultsTable;
-                lblRecords.Text = resultsTable.Rows.Count.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, 
-                    "Error in Processing SQL",
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error in Processing SQL",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             resultsCommand.Dispose();
             resultsAdapter.Dispose();
@@ -52,11 +70,78 @@ namespace SQLTesterProject4_1
 
         private void frmSQLTester_Load(object sender, EventArgs e)
         {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "C:\\VCSDB\\Working";
+                openFileDialog.Filter = "mdf files (*.mdf)|*.mdf|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFileDialog.FileName;
+                    var fileStream = openFileDialog.OpenFile();
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+
+                }
+            }
+
             booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS;" +
                 "AttachDbFilename=c:\\VCSDB\\Working\\SQLBooksDB.mdf;" +
                 "Integrated Security=True;" +
                 "Connect Timeout=30;" +
                 "User Instance=True");
+            booksConnection.Open();
+
+            int w, IStart, l, t;
+            int buttonHeight = 33;
+
+            w = Convert.ToInt32(this.ClientSize.Width / 14);
+
+            IStart = Convert.ToInt32(0.5 * (this.ClientSize.Width - 13 * w));
+            l = IStart;
+            t = grdBooks.Top + grdBooks.Height + 2;
+
+            for(int i = 0; i <26; i++)
+            {
+                btnRolodex[i] = new Button();
+                btnRolodex[i].TabStop = false;
+
+                btnRolodex[i].Text = ((char)(65 + i)).ToString();
+
+                btnRolodex[i].Width = w;
+                btnRolodex[i].Height = buttonHeight;
+                btnRolodex[i].Left = l;
+                btnRolodex[i].Top = t;
+
+                btnRolodex[i].BackColor = Color.Blue;
+                btnRolodex[i].ForeColor = Color.White;
+
+                this.Controls.Add(btnRolodex[i]);
+
+                btnRolodex[i].Click += new System.EventHandler(this.btnTest_Click);
+
+                l += w;
+                if (i == 12)
+                {
+                    l = IStart;
+                    t += buttonHeight;
+                }
+            }
+            SQLAll = "SELECT Authors.Author,Titles.Title,Publishers.Company_Name ";
+            SQLAll += "FROM Authors, Titles, Publishers, Title_Author ";
+            SQLAll += "WHERE Titles.ISBN = Title_Author.ISBN ";
+            SQLAll += "AND Authors.Au_ID = Title_Author.Au_ID ";
+            SQLAll += "AND Titles.PubID = Publishers.PubID ";
+             
+            this.Show();
+            btnAll.PerformClick();
         }
 
         private void frmSQLTester_FormClosing(object sender, FormClosingEventArgs e)
@@ -69,6 +154,11 @@ namespace SQLTesterProject4_1
         {
             if (e.Column.CellType == typeof(DataGridViewImageCell))
                 grdBooks.Columns.Remove(e.Column);
+        }
+
+        private void grdBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

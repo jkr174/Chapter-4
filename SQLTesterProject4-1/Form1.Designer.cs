@@ -35,7 +35,7 @@
             // 
             // btnAll
             // 
-            this.btnAll.Location = new System.Drawing.Point(422, 258);
+            this.btnAll.Location = new System.Drawing.Point(422, 312);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(159, 23);
             this.btnAll.TabIndex = 3;
@@ -53,6 +53,7 @@
             this.grdBooks.Size = new System.Drawing.Size(569, 186);
             this.grdBooks.TabIndex = 4;
             this.grdBooks.TabStop = false;
+            this.grdBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdBooks_CellContentClick);
             this.grdBooks.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.grdSQLTester_ColumnAdded);
             // 
             // frmBooks
@@ -60,7 +61,7 @@
             this.AcceptButton = this.btnAll;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 293);
+            this.ClientSize = new System.Drawing.Size(597, 347);
             this.Controls.Add(this.grdBooks);
             this.Controls.Add(this.btnAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
