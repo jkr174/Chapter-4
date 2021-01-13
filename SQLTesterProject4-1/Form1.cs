@@ -75,10 +75,9 @@ namespace SQLTesterProject4_1
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "C:\\VCSDB\\Working";
-                openFileDialog.Filter = "mdf files (*.mdf)|*.mdf|All files (*.*)|*.*";
+                openFileDialog.InitialDirectory = Path.Combine(Application.StartupPath,@"Databases");
+                openFileDialog.Filter = "mdf files (*.mdf)|*.mdf";
                 openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -90,10 +89,19 @@ namespace SQLTesterProject4_1
                     }
 
                 }
-            }
+                else
+                {
+                    string Message = "Please select a valid file to open.",
+                        Title = "Error!";
 
+                    MessageBox.Show(Message,
+                        Title,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation);
+                }
+            }
             booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS;" +
-                "AttachDbFilename=c:\\VCSDB\\Working\\SQLBooksDB.mdf;" +
+                "AttachDbFilename=" + filePath + ";" +
                 "Integrated Security=True;" +
                 "Connect Timeout=30;" +
                 "User Instance=True");

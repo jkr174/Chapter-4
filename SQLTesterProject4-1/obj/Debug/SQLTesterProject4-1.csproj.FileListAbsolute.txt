@@ -7,3 +7,13 @@ C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQ
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.exe
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.pdb
 C:\Users\jromo021627\Documents\GitHub\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4_1.frmBooks.resources
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\bin\Debug\SQLTesterProject4-1.exe.config
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\bin\Debug\SQLTesterProject4-1.exe
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\bin\Debug\SQLTesterProject4-1.pdb
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.csprojAssemblyReference.cache
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4_1.frmBooks.resources
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4_1.Properties.Resources.resources
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.csproj.GenerateResource.cache
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.csproj.CoreCompileInputs.cache
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.exe
+C:\Users\romo1\OneDrive\Documents\GitHub\TitlesBranch3\Chapter-4\SQLTesterProject4-1\obj\Debug\SQLTesterProject4-1.pdb
